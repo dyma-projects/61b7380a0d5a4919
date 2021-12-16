@@ -1,1 +1,28 @@
-<p>exercice1 works!</p>
+<br />
+<div id="container" (click)="click()">
+  <h1 [style.color]="selectedColor">Hello world</h1>
+  <!--Liaison de propriétés-->
+
+  <h3>Enter valid color to change hello world color</h3>
+  <h4>Example : red</h4>
+  <input [value]="selectedColor" (input)="changeColor($event.target.value)" />
+  <!--Liaison d'évènements-->
+
+  <h3>
+    la couleur courante est
+    <span [style.color]="selectedColor">{{ selectedColor }}</span>
+    <!--String interpolation-->
+  </h3>
+
+  <!--
+    
+    J'ai essayé de faire la même chose avec une liste déroulante mais ça ne fonctionne pas. surement parce que 
+    $event.target.value return le résultat entre simple quote. Par exemple il retourne 'blue' au lieu de blue.
+
+
+    <select (change)="selectedColor = $event.target.value">
+    <option *ngFor="let color of colors" value="'{{ color }}'">
+      {{ color }}
+    </option>
+  </select>-->
+</div>
